@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 이벤트 위임</title>
+</head>
+<style>
+  *{margin:0;padding:0;}
+  .menu{display:inline-flex;justify-self:center;align-items:center;padding:30px;background:rgba(226, 222, 222, 0.3);border-radius:30px;}
+  .menu-btn{border:1px solid #ccc;color:#fff;background-color:pink;padding:30px;}
+  .menu-btn + .menu-btn{margin-left:25px;}
+  /* 클릭 이벤트 안받게 하기위해 css 속성 활용하는 방법 */
+  /* 주의점: 하위에 있는 요소들을 타겟으로 잡을 수 없음! 구조에 따라 적절하지 않을 수 있음 */
+  .btn_label{pointer-events:none;}
+</style>
+<body>
+  <div class="menu">
+    <button class="menu-btn" data-value="1">
+      <span class="btn_label">버튼 1</span>
+    </button>
+    <button class="menu-btn" data-value="2">
+      <span class="btn_label">버튼 2</span>
+    </button>
+    <button class="menu-btn" data-value="3">
+      <span class="btn_label">버튼 3</span>
+    </button>
+  </div>
+
+  <script>
+    // const btns = document.querySelectorAll('.menu-btn');
+
+    // function clickBtnHandler(){
+    //   console.log(this);
+    // }
+
+    // // for (let i = 0; i < btns.length; i++){
+    // //   btns[i].addEventListener('click',clickBtnHandler);
+    // // }
+    // btns[0].addEventListener('click', clickBtnHandler);
+    // btns[1].addEventListener('click', clickBtnHandler);
+    // btns[2].addEventListener('click', clickBtnHandler);
+
+    // 위의 방식 (반복적인 addEventLister 발생)은 브라우저 성능에 좋지 않음 -> btn을 감싸고 있는 menu에 이벤트 위임!
+    const menu = document.querySelector('.menu');
+    function clickHandler(event){
+
+      // console.log(event.currentTarget); -> this와 같은 객체를 가리킴
+      // console.log(event.target.getAttribute('data-value'));
+
+      let elem = event.target;
+      // menu-btn을 가지고 있는지?
+      while(!elem.classList.contains('menu-btn')){ // menu-btn이 나타날 때 까지 체크해야하니 반복문으로 처리
+
+        elem = elem.parentNode;
+        if (elem.nodeName = 'BODY'){
+          elem = null;
+          return; 
+          // body까지 타고 올라갔을때에는 함수 종료 
+        }
+      }
+      console.log(elem.dataset.value);
+    }
+    menu.addEventListener('click', clickHandler);
+  </script>
+</body>
+</html>

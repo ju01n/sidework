@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D 리플릿</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- [S] wrap -->
+  <div class="wrap">
+    <div class="cursor">
+      <img src="images/hand.png" alt="">
+    </div>
+    <!-- [S] leaflet -->
+    <div class="leaflet">
+      <div class="page" data-page="1">
+        <div class="face_page cover_page">
+          <p class="cover_desc">짱구는 못말려</p>
+          <h1 class="cover_title">인물 소개서</h1>
+        </div>
+        <div class="face_page">
+          <ul class="info_list">
+            <li class="info_item">
+              <div class="info_img"><img src="images/item1.png" alt="신짱구 썸네일"></div>
+              <div class="info">
+                <p class="name">신짱구</p>
+                <p class="desc">1990-2020년 기준상 30년 동안 나이는 5살이다. </p>
+              </div>
+              <button class="back-btn">Back</button>
+            </li>
+            <li class="info_item">
+              <div class="info_img"><img src="images/item2.webp" alt="김철수 썸네일"></div>
+              <div class="info">
+                <p class="name">김철수</p>
+                <p class="desc">꽤 오래전부터 오타쿠 기믹이 붙어 극중 '신비한 마법소녀 마리쨩(소녀마법사 마리)'의 주인공 마리의 팬이자 여자아이들용 애니메이션인 '마법소녀 모에P'(모야삐→프린세스)의 열렬한 팬이다.</p>
+              </div>
+              <button class="back-btn">Back</button>
+            </li>
+            <li class="info_item">
+              <div class="info_img"><img src="images/item3.webp" alt="김철수 썸네일"></div>
+              <div class="info">
+                <p class="name">훈이</p>
+                <p class="desc">주먹밥 머리 훈이입니다.</p>
+              </div>
+              <button class="back-btn">Back</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="page" data-page="2">
+        <div class="face_page">
+          <ul class="info_list">
+            <li class="info_item">
+              <figure class="info_img" style="background-image: url(images/ilbuni.gif)"></figure>
+              <div class="info_box">
+                <p class="name">Ilbuni</p>
+                <p class="member_desc">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corrupti excepturi asperiores.</p>
+              </div>
+              <button class="back-btn">← Back</button>
+            </li>
+            <li class="info_item">
+              <figure class="info_img" style="background-image: url(images/ilbuni.gif)"></figure>
+              <div class="info_box">
+                <p class="name">Jane Doe</p>
+                <p class="member_desc">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corrupti excepturi asperiores.</p>
+              </div>
+              <button class="back-btn">← Back</button>
+            </li>
+          </ul>
+        </div>
+        <div class="face_page">2B</div>
+      </div>
+      <div class="page" data-page="3">
+        <div class="face_page cover_page">
+          <p class="message">Welcome!</p>
+        </div>
+        <div class="face_page">
+          <ul class="info_list">
+            <li class="info_item">
+              <figure class="info_img" style="background-image: url(images/ilbuni.gif)"></figure>
+              <div class="info_box">
+                <p class="name">Ilbuni</p>
+                <p class="member_desc">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corrupti excepturi asperiores.</p>
+              </div>
+              <button class="back-btn">← Back</button>
+            </li>
+            <li class="info_item">
+              <figure class="info_img" style="background-image: url(images/ilbuni.gif)"></figure>
+              <div class="info_box">
+                <p class="name">Jane Doe</p>
+                <p class="member_desc">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita corrupti excepturi asperiores.</p>
+              </div>
+              <button class="back-btn">← Back</button>
+            </li>
+          </ul>
+          <button class="close-btn">✗ Close</button>
+        </div>
+      </div>
+    </div>
+    <!-- [E] leaflet -->
+  </div>
+  <!-- [E] wrap -->
+  <script src="js/main.js"></script>
+</body>
+</html>

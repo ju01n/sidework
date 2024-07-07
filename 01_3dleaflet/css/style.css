@@ -1,0 +1,45 @@
+@keyframes start-ani{
+  0%{
+    transform:translate(-100%, 100%) rotate(-540deg);
+  }
+  100%{
+    transform:translate(0, 0) rotate(0);
+  }
+}
+.wrap{width:100vw;height:100vh;background:url(../images/bg_table.jpg);background-size:cover;background-repeat:no-repeat;font-family:"Playfair Display", serif;font-size:14px;perspective:1500px;overflow:hidden;}
+.cursor{position:absolute;top:70%;left:70%;z-index:10;width:400px}
+.cursor img{transition:1s;transform-origin:left top;}
+.zoom-in .cursor img{transform:scale(2);}
+.leaflet{position:absolute;top:0;right:0;bottom:0;left:0;width:30vw;height:30vw;margin:auto;animation:start-ani 1s forwards;transition:1s;cursor:pointer;transform-style:preserve-3d}
+.page{position:absolute;top:0;left:0;width:100%;height:100%;font-size:3rem;transition:1s;transform-style:preserve-3d}
+
+.page:nth-child(1){z-index:2;transform-origin:left}
+.page:nth-child(3){z-index:1;transform-origin:right}
+.page:nth-child(1).page-flipped{transform:rotateY(-150deg)}
+.page:nth-child(3).page-flipped{transform:rotateY(150deg)}
+.page:nth-child(1) .face_page:nth-child(2),
+.page:nth-child(2) .face_page:nth-child(1),
+.page:nth-child(3) .face_page:nth-child(2){background:#fff}
+
+.face_page{position:absolute;top:0;left:0;width:100%;height:100%;background:url(../images/bg_face_page.jpg) no-repeat;background-position:center bottom;backface-visibility:hidden}
+.face_page:nth-child(2){transform:rotateY(180deg)}
+
+.cover_page{display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:1.5rem;}
+.cover_page:before{display:block;position:absolute;top:10px;right:10px;bottom:10px;left:10px;border:1px solid #111;content:''}
+.cover_page .cover_desc{font-family: "Do Hyeon", sans-serif;font-size:2vw;}
+.cover_title{font-family: "Rubik", sans-serif;font-size:3vw;}
+.info_list{font-size:0.7rem;transform-style:preserve-3d}
+.zoom-in .info_item{opacity:0}
+.zoom-in .info_item.current-menu{opacity:1}
+
+.info_item{display:flex;align-items:center;position:relative;padding:2em;transition:0.5s;transform-style:preserve-3d}
+
+.current-menu .back-btn{display:inline-block}
+.back-btn{display:none;position:absolute;top:10px;right:10px}
+.info_img{flex-shrink:0;border-radius:50%;border:1px solid #ccc;width:6vw;height:6vw;overflow:hidden}
+.info_img img{object-fit:cover}
+.info{flex:1;margin-left:1em}
+.info .name{font-size:1rem;font-weight:bold}
+
+.close-btn{display:none;position:absolute;top:-2rem;right:10px;font-size:1.2rem;color:#fff;text-shadow:rgba(0,0,0.3) 1px 0;backface-visibility:hidden}
+.leaflet-opened .close-btn{display:inline-block;}
