@@ -27,6 +27,7 @@
   function closeLeaflet(){
     pageCount = 0;
     document.body.classList.remove('leaflet_opened');
+    leaflet.classList.remove('is_active');
     pageElems[2].classList.remove('page_flipped');
     setTimeout(() => {
       pageElems[0].classList.remove('page_flipped');
@@ -87,6 +88,7 @@ render();
 
       if(pageCount == 2){ // page가 2번 펼쳐질 때
         document.body.classList.add('leaflet_opened');
+        leaflet.classList.add('is_active');
       }
     }
 
