@@ -88,7 +88,9 @@ render();
 
       if(pageCount == 2){ // page가 2번 펼쳐질 때
         document.body.classList.add('leaflet_opened');
-        leaflet.classList.add('is_active');
+        setTimeout(() => {
+          leaflet.classList.add('is_active');
+        }, 500);
       }
     }
 
