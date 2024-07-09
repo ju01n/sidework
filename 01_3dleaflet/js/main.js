@@ -1,5 +1,5 @@
 (() => {
-  const hand = document.querySelector('.cursor');
+  const hand = document.querySelector('.hand');
   const leaflet = document.querySelector('.leaflet');
   const pageElems = document.querySelectorAll('.page');
   let pageCount = 0;
@@ -26,22 +26,22 @@
 // 리플릿 닫는 함수
   function closeLeaflet(){
     pageCount = 0;
-    document.body.classList.remove('leaflet-opened');
-    pageElems[2].classList.remove('page-flipped');
+    document.body.classList.remove('leaflet_opened');
+    pageElems[2].classList.remove('page_flipped');
     setTimeout(() => {
-      pageElems[0].classList.remove('page-flipped');
+      pageElems[0].classList.remove('page_flipped');
     }, 500);
   }
 
 // zoomin 함수
-function zoomIn(elem){
+function zoomIn(elem) {
   const rect = elem.getBoundingClientRect();
   // console.log(rect.left, rect.top);
-  const dx = window.innerWidth / 2 - (rect.x + rect.width / 2 );
-  const dy = window.innerHeight / 2 - (rect.y + rect.height / 2 );
+  const dx = window.innerWidth/2 - (rect.x + rect.width/2);
+  const dy = window.innerHeight/2 - (rect.y + rect.height/2);
   let angle;
 
-  switch(elem.parentNode.parentNode.parentNode.dataset.page * 1){ // data-page의 숫자에 따라 앵글 바꿈, *1 해주면 문자열이 숫자로 바뀜
+  switch (elem.parentNode.parentNode.parentNode.dataset.page * 1) {// data-page의 숫자에 따라 앵글 바꿈, *1 해주면 문자열이 숫자로 바뀜
     case 1:
       angle = -30;
       break;
@@ -53,18 +53,18 @@ function zoomIn(elem){
       break;
   }
 
-  document.body.classList.add('zoom-in');
+  document.body.classList.add('zoom_in');
   leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw) rotateY(${angle}deg)`;
   currentMenu = elem;
-  currentMenu.classList.add('current-menu'); // 클릭한 메뉴아이템에 클래스 부여
+  currentMenu.classList.add('current_menu'); // 클릭한 메뉴아이템에 클래스 부여
 }
 
 // zoomOut 함수
-function zoomOut(){
-  leaflet.style.transform = 'translate3d(0,0,0);'
-  if(currentMenu){
-    document.body.classList.remove('zoom-in');
-    currentMenu.classList.remove('current-menu');
+function zoomOut() {
+  leaflet.style.transform = 'translate3d(0, 0, 0)';
+  if (currentMenu) {
+    document.body.classList.remove('zoom_in');
+    currentMenu.classList.remove('current_menu');
     currentMenu = null;
   }
 }
@@ -82,21 +82,21 @@ render();
   leaflet.addEventListener('click', e => {
     let pageElem = getTarget(e.target, 'page')
     if (pageElem){
-      pageElem.classList.add('page-flipped');
+      pageElem.classList.add('page_flipped');
       pageCount++; // page를 넘길 때 마다 1씩 증가해주어야함
 
       if(pageCount == 2){ // page가 2번 펼쳐질 때
-        document.body.classList.add('leaflet-opened');
+        document.body.classList.add('leaflet_opened');
       }
     }
 
-    let closeBtnElem = getTarget(e.target, 'close-btn');
+    let closeBtnElem = getTarget(e.target, 'btn_close');
     if(closeBtnElem){ // 'close-btn'클릭 시 페이지 초기화(pageCount, .leaflet-opened 클래스 제거..)
       closeLeaflet();
       zoomOut();
     }
     let menuItemElem = getTarget(e.target, 'info_item');
-    if(menuItemElem){
+    if (!document.body.classList.contains('zoom_in')) {
       zoomIn(menuItemElem);
     }
     // while(!pageElem.classList.contains('page')){
@@ -109,7 +109,7 @@ render();
     // }
 
     // console.log(pageElem);
-    let backBtn = getTarget(e.target, 'back-btn');
+    let backBtn = getTarget(e.target, 'btn_back');
     if(backBtn){
       zoomOut();
     }
