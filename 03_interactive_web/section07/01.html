@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 : Object</title>
+  </head>
+  <style>
+    p {
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <h1>Object</h1>
+    <p>
+      const person = {}; <br /><br />
+
+      // 속성, property<br />
+      person.name = '일분이';<br />
+      person.age = 10;<br /><br />
+
+      // 메소드, method : 속성인데, 값이 함수인<br />
+      person.introduce = function(){<br />
+      console.log('안녕하세요? 저는 일분이고 나이는 10살이에여');<br />
+      };<br /><br />
+
+      person.introduce();<br />
+      // console.log(person);
+    </p>
+
+    <hr />
+    <p>
+      <br />
+      const person = {<br />
+      name : '일분이',<br />
+      age : 10,<br />
+      introduce : function(){<br />
+      console.log('안녕하세요? 저는 일분이고 나이는 10살이에여')}}<br /><br />
+      console.log(person.name);<br />
+      person.introduce();
+    </p>
+
+    <hr />
+    <p>
+      // window.name(); name은 윈도우 전역객체로 존재! 그래서 오류가
+      안났던거임<br />
+
+      // this : 메서드가 실행한 객체 자체를 가리킴<br /><br />
+      const person = {<br />
+      nickname : '일분이',<br />
+      age : 10,<br />
+      introduce : function(){<br />
+      console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.age
+      + '살이에여') } }<br /><br />
+      // console.log(person.name);<br />
+      // person.introduce();<br /><br />
+
+      function foo(){<br />
+      console.log(this); }<br />
+      foo(); // 윈도우 전역객체가 찍힘<br /><br />
+
+      const person2 = {<br />
+      nickname : '이분이',<br />
+      age : 8,<br />
+      introduce : function(){<br />
+      console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.age
+      + '살이에여') } }<br /><br />
+      person.introduce();<br />
+      person2.introduce();<br />
+      <hr>
+
+
+
+    // 생성자 (constructor)
+    function Person(nickname, age){
+      this.nickname = nickname;
+      this.age = age;
+      this.introduce = function(){
+        console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.age + '살이에여')
+      }
+    }
+
+    // 인스턴스 (instance)
+    const person1 = new Person('일분이', 10); // new : 개별 객체를 this가 가리키게됨
+    const person2 = new Person('이분이', 8);
+
+    person1.introduce();
+    person2.introduce();
+    <!-- <script>
+    const person = {};
+
+    // 속성, property
+    person.name = '일분이';
+    person.age = 10;
+
+    // 메소드, method : 속성인데, 값이 함수인
+    person.introduce = function(){
+      console.log('안녕하세요? 저는 일분이고 나이는 10살이에여');
+    };
+
+
+
+    person.introduce();
+    // console.log(person);
+  </script> -->
+</p>
+    <script>
+      // window.name(); name은 윈도우 전역객체로 존재! 그래서 오류가 안났던거임
+
+      // this : 메서드가 실행한 객체 자체를 가리킴
+      // const person = {
+      //   nickname : '일분이',
+      //   age : 10,
+      //   introduce : function(){
+      //     console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.age + '살이에여')
+      //   }
+      // }
+      // console.log(person.name);
+      // person.introduce();
+
+      // function foo(){
+      //   console.log(this);
+      // }
+      // foo(); 윈도우 전역객체가 찍힘
+
+      // const person2 = {
+      //   nickname : '이분이',
+      //   agee : 8,
+      //   introduce : function(){
+      //     console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.agee + '살이에여')
+      //   }
+      // }
+      // person.introduce();
+      // person2.introduce();
+
+      // 생성자 (constructor)
+      function Person(nickname, age){
+        this.nickname = nickname;
+        this.age = age;
+      }
+
+      // prototype 객체 : 객체 인스턴스들이 공유
+      Person.prototype.introduce = function(){
+          console.log('안녕하세요? 저는' + this.nickname + '이고, 나이는' + this.age + '살이에여')
+        }
+
+      // 인스턴스 (instance)
+      const person1 = new Person('일분이', 10); // new : 개별 객체를 this가 가리키게됨
+      const person2 = new Person('이분이', 8);
+
+      person1.introduce();
+      person2.introduce();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation</title>
+  <style>
+    @keyframes sample-ani{
+      0%{
+        transform:translate(0,0);
+      }
+      50%{
+        transform:translate(300px,0);
+        background:red;
+      }
+      100%{
+        transform:translate(400px,500px);
+      }
+    }
+    .box{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100px;
+      height:100px;
+      border:2px solid #000;
+      background:#fff000;
+      /* animation:sample-ani 2s linear infinite reverse; */
+      /* alternate : 번갈아가변서
+         reverse : 거꾸로
+         alternate reverse : 시작은 거꾸로하면서 번갈아가면서함
+      */
+      animation:sample-ani 3s linear forwards;
+      /* forwards : 애니메이션이 마지막 지점에서 끝 */
+    }
+    .box:hover{
+      animation-play-state:paused;
+      /* hover 시 애니메이션 paused */
+    }
+  </style>
+</head>
+<body>
+  <h1>Animation</h1>
+  <div class="box">BOX</div>
+</body>
+</html>

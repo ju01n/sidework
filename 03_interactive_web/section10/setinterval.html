@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setInterval</title>
+</head>
+<style>
+  .btn{font-size:2rem;}
+</style>
+<body>
+  <button class="btn">취소</button>
+  <script>
+    let timeId;
+    const btn = document.querySelector('.btn');
+
+    function sample(){
+      console.log('sample!');
+    }
+
+    timeId = setInterval(sample, 1000); // 설정된 시간마다 반복
+
+    btn.addEventListener('click',function(){
+      clearInterval(timeId);
+    })
+  </script>
+</body>
+</html>

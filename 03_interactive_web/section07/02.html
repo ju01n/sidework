@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>템플릿 문자열</title>
+</head>
+<body>
+  <script>
+    const name = '일분이';
+    const age = 10;
+    console.log('안녕하세요 저는' + name + '이고' + age + '살이에요');
+
+    // 표현식
+    console.log(`안녕하세요? 저는 ${name}이고, ${age}살이에요`);
+
+    // 방법 1
+    const elemHtml = ''
+      + '<div class="character">'
+        +'캐릭터'
+      + '</div>'
+
+    // 방법2 (백틱 활용)
+    const elemHtml2 = `
+    <div class="character">
+      캐릭터
+    </div>`;
+
+    document.body.innerHTML = elemHtml;
+    document.body.innerHTML = elemHtml2;
+  </script>
+</body>
+</html>

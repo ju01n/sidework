@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- <script>
+        // 'load' : 문서 전체가 다 로드되면 실행
+        // 'DOMContentLoaded' : DOM구조만 로드 되면 실행 -> 좀 더 효율적 (IE9 ~ )
+        window.addEventListener('DOMContentLoaded', function(){ // 윈도우가 로드되면 실행
+            const ilbuni = document.querySelector('.ilbuni.c');
+            console.log('ilbuni');
+
+            function clickIlbuniHandler(){
+                ilbuni.classList.toggle('special')
+            }
+
+            ilbuni.addEventListener('click', clickIlbuniHandler)
+        })
+    </script> -->
+    <style>
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .characters {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: #fff000;
+      }
+      .ilbuni {
+        width: 100px;
+        cursor: pointer;
+      }
+      .characters .ilbuni {
+        display: inline-block;
+      }
+      .special {
+        border: 10px dashed red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="characters">
+      <div class="ilbuni a">
+        <img src="images/ilbuni_0.png" alt="일분이">
+      </div>
+      <div class="ilbuni b">
+        <img src="images/ilbuni_1.png" alt="일분이">
+      </div>
+      <div class="ilbuni c">
+        <img src="images/ilbuni_2.png" alt="일분이">
+      </div>
+      <div class="ilbuni d">
+        <img src="images/ilbuni_3.png" alt="일분이">
+      </div>
+    </div>
+
+    <script>
+    // body가 끝나기 직전에 script 작성 - 위~순서대로 읽기떄문에 로드 끝
+
+    // 전역변수 -> 최소화 권장
+    //   const ilbuni = document.querySelector('.ilbuni:nth-child(3)');
+    //   ilbuni.addEventListener('click', function () {
+    //     ilbuni.classList.toggle('special');
+    //     // click 이벤트가 일어났을 때 실행할 함수
+    //   });
+
+    // 전역변수 최소화 하기 . . 개선 - 함수 통째로 ()로 감싸고 실행.
+      (function (){
+        const ilbuni = document.querySelector('.ilbuni.c');
+
+        function clickIlbuniHandler(){
+            ilbuni.classList.toggle('special');
+        }
+        ilbuni.addEventListener('click', clickIlbuniHandler);
+      }());
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transition 이벤트</title>
+</head>
+<style>
+  .ball{position:absolute;top:0;left:0;width:30px;height:30px;background:red;border-radius:50%;transition:1s}
+  .ball.end{background:dodgerblue}
+</style>
+<body>
+  <div class="ball"></div>
+  <script>
+    const ballElem = document.querySelector('.ball');
+    window.addEventListener('click',function(e){
+      // console.log(e.screenX, e.screenY);
+
+      // ball이 가운데로 오게 하기위해 -15씩
+      ballElem.style.transform = 'translate(' + (e.clientX - 15) + 'px, ' + (e.clientY - 15) + 'px)';});
+
+      //ballElem.addEventListener('transitionend', function(e){ // 끝날때 transition
+        ballElem.addEventListener('transitionstart', function(e){ // 시작하자마자 transition
+        ballElem.classList.add('end');
+        console.log(e.elapsedTime); // transition 되는데 걸리는 시간
+        console.log(e.propertyName); // 바뀐 속성
+      })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transition</title>
+  <link rel="stylesheet" href="/reset.css">
+  <style>
+    h1{
+      font-size:30px;
+      font-weight:bold;
+    }
+    .box-container{
+      display:flex;
+    }
+    .box{
+      width:100px;
+      height:100px;
+      border:2px solid black;
+      background:rgba(255,255,0,0.7);
+      transition:1s 0.5s; /* duration, delay*/
+      /* 1초동안 애니메이션 진행 */
+    }
+    .box:hover{
+      transform:scale(2);
+      background:red;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Transform</h1>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe amet vero eaque provident, perferendis accusantium repellat facere cumque atque optio reprehenderit ducimus molestias rerum. Nam tempore minima aliquid dolore ex!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe amet vero eaque provident, perferendis accusantium repellat facere cumque atque optio reprehenderit ducimus molestias rerum. Nam tempore minima aliquid dolore ex!</p>
+  <div class="box-container">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+    <div class="box">D</div>
+    <div class="box">E</div>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe amet vero eaque provident, perferendis accusantium repellat facere cumque atque optio reprehenderit ducimus molestias rerum. Nam tempore minima aliquid dolore ex!</p>
+</body>
+</html>

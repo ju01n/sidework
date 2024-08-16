@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Web</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1 class="title">클릭해서 없애기 게임</h1>
+  <div class="stage">
+    <div class="ilbuni a"></div>
+    <div class="ilbuni b"></div>
+    <div class="ilbuni c"></div>
+  </div>
+
+  <script>
+    (function(){
+      const ilbuniGroup = document.querySelectorAll('.ilbuni')
+      const stage = document.querySelector('.stage');
+      function clickHandler(e){
+        // console.log(e.currentTarget);
+        stage.removeChild(this)
+        // this.parentNode.removeChild(this); 같음
+      }
+      // console.log(ilbuniGroup);
+      for(let i = 0; i < ilbuniGroup.length; i++){
+        ilbuniGroup[i].addEventListener('click', clickHandler)
+      }
+    })();
+  </script>
+</body>
+</html>

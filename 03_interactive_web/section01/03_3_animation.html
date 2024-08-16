@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation</title>
+  <style>
+    body{
+      background:#ccc;
+    }
+    @keyframes spaceship-ani{
+      /* from{
+
+      } */
+      to{
+        background-position:-2550px 0;
+      }
+    }
+    .spaceship{
+      width:150px;
+      height:150px;
+      background:url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+      animation:spaceship-ani 1s infinite steps(17);
+      /* steps : 단계별로 탁탁 끊어서 실행 */
+    }
+
+    /* gif 적용하면 편한거 아닌가요? -> 단점 : 투명도 적용 불가 */
+    /* png를 animation으로 제어하면 내가 원하는 만큼 조절이 가능한 장점있음 */
+  </style>
+</head>
+<body>
+  <div class="spaceship"></div>
+</body>
+</html>
