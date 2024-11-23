@@ -27,8 +27,11 @@
 	<canvas class="sample-canvas" width="1920" height="1080"></canvas>
 
 	<script>
+    // canvas 객체 이용 시 기본사항
+    // 캔버스 객체 가지고 오고, context개체 가져오기
 		const canvas = document.querySelector('.sample-canvas');
 		const context = canvas.getContext('2d');
+
 		const videoImages = [];
 		let totalImagesCount = 960;
 		let progress;
@@ -47,12 +50,14 @@
 			context.drawImage(videoImages[0], 0, 0);
 
 			window.addEventListener('scroll', function () {
+        // 이전과 동일함
 				progress = pageYOffset / (document.body.offsetHeight - window.innerHeight);
 				if (progress < 0) progress = 0;
 				if (progress > 1) progress = 1;
 
 				currentFrame = Math.round((totalImagesCount - 1) * progress);
 				context.drawImage(videoImages[currentFrame], 0, 0);
+        // 내가 그릴 이미지 객체를 첫번째 인자, x좌표, y좌표 순
 			});
 		}
 
