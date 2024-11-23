@@ -6,9 +6,9 @@ html {
 }
 body {
 	overflow-x: hidden;
+	background: white;
 	color: rgb(29, 29, 31);
 	letter-spacing: -0.05em;
-	background: white;
 }
 p {
 	line-height: 1.6;
@@ -90,18 +90,18 @@ body.before-load {
 }
 .main-message {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	top: 35vh;
-	margin: 5px 0;
 	height: 3em;
+	margin: 5px 0;
 	font-size: 2.5rem;
 	opacity: 0;
 }
 .main-message p {
 	font-weight: bold;
-	text-align: center;
 	line-height: 1.2;
+	text-align: center;
 }
 .main-message small {
 	display: block;
@@ -161,11 +161,11 @@ body.before-load {
 }
 .footer {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	height: 7rem;
-	color: white;
 	background: darkorange;
+	color: white;
 }
 .sticky-elem {
 	display: none;
@@ -205,8 +205,8 @@ body.before-load {
 }
 .loading {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -237,13 +237,13 @@ body.before-load {
 	animation: loading-spin 3s infinite;
 }
 .loading-circle circle {
+	animation: loading-circle-ani 1s infinite;
 	stroke: black;
 	stroke-width: 4;
 	/* getTotalLength()로 stroke의 길이를 얻어올 수 있음 */
 	stroke-dasharray: 157, 157;
 	stroke-dashoffset: 0;
 	fill: transparent;
-	animation: loading-circle-ani 1s infinite;
 	/* transition: 1s; */
 }
 /* .loading-circle:hover circle {

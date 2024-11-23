@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 500vh;
+		}
+		body.before-load {
+			overflow-y: hidden;
+		}
+		.sample-img {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+	</style>
+</head>
+<body class="before-load">
+	<img class="sample-img" src="../video/002/IMG_7027.JPG">
+
+	<script>
+		const imgElem = document.querySelector('.sample-img');
+
+    // 이미지
+		let loadedImageCount= 0;
+		let totalImagesCount = 960; // 이미지가 총 960개
+		const videoImages = [];
+
+		function loadImages() {
+			for (let i = 0; i < totalImagesCount; i++) {
+				let imgElem = new Image();
+				imgElem.src = `../video/002/IMG_${7027 + i}.JPG`;
+				videoImages.push(imgElem);
+
+				imgElem.addEventListener('load', function () {
+					loadedImageCount++;
+					console.log(loadedImageCount);
+					if (loadedImageCount === totalImagesCount) {
+						console.log('이미지 로드 완료');
+						init(); // 초기화
+					}
+				});
+			}
+		}
+
+		loadImages();
+
+		let progress;
+		let currentFrame;
+    // 초기화 함수
+		function init() {
+			document.body.classList.remove('before-load');
+
+			window.addEventListener('scroll', function () {
+				progress = pageYOffset / (document.body.offsetHeight - window.innerHeight);
+				if (progress < 0) progress = 0;
+				if (progress > 1) progress = 1;
+
+        // 이미지가 960개니까 0~960까지 비율에 맞춰서
+				requestAnimationFrame(function () {
+					currentFrame = Math.round((totalImagesCount - 1) * progress);
+					imgElem.src = videoImages[currentFrame].src;
+				});
+			});
+		}
+	</script>
+</body>
+</html>
